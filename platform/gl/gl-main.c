@@ -3165,6 +3165,7 @@ static void usage(const char *argv0)
 	fprintf(stderr, "\t-R -\tenable reflow and set the text extraction options\n");
 	fprintf(stderr, "\t--external-access\tallow access to directory containing file for external resources\n");
 	fprintf(stderr, "\t\t\texample: -R dehyphenate,preserve-images\n");
+	fprintf(stderr, "\t-f\tstart in fullscreen mode\n");
 	exit(1);
 }
 
@@ -3281,7 +3282,7 @@ int main(int argc, char **argv)
 #define SWITCH(x) switch ((intptr_t)(x))
 #define CASE(x) case ((intptr_t)(x))
 
-	while ((c = fz_getopt_long(argc, argv, "p:r:IW:H:S:U:XJb:A:B:C:T:Y:R:c:v", longopts)) != -1)
+	while ((c = fz_getopt_long(argc, argv, "p:r:IW:H:S:U:XJb:A:B:C:T:Y:R:c:vf", longopts)) != -1)
 	{
 		switch (c)
 		{
@@ -3319,6 +3320,7 @@ int main(int argc, char **argv)
 		case 'R': reflow_options = fz_optarg; break;
 		case 'T': trace_file_name = fz_optpath(fz_optarg); break;
 		case 'Y': scale = fz_atof(fz_optarg); break;
+		case 'f': isfullscreen = 1; break;
 		}
 	}
 
@@ -3449,6 +3451,9 @@ int main(int argc, char **argv)
 #if FZ_ENABLE_JS
 	console_h *= ui.lineheight;
 #endif
+
+	if (isfullscreen)
+		glutFullScreen();
 
 	glutMainLoop();
 
