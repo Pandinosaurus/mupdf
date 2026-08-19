@@ -94,7 +94,6 @@ on our initial list building pass, collate those into matching 'words'
 and sort them accordingly.
 */
 
-
 typedef struct word_record_s {
 	int len;
 	fz_rect bbox;
@@ -107,7 +106,7 @@ typedef struct fz_ocr_device_s
 	fz_device super;
 
 	/* Progress monitoring */
-	int (*progress)(fz_context *, void *, int progress);
+	fz_ocr_progress_fn *progress;
 	void *progress_arg;
 
 	fz_device *target;
@@ -908,8 +907,9 @@ fz_new_ocr_device(fz_context *ctx,
 		int with_list,
 		const char *language,
 		const char *datadir,
-		int (*progress)(fz_context *, void *, int),
-		void *progress_arg)
+		fz_ocr_progress_fn *progress,
+		void *progress_arg
+)
 {
 	return fz_new_ocr_device_with_options(ctx, target, ctm, mediabox, with_list, language, datadir, progress, progress_arg, NULL);
 }
@@ -922,7 +922,7 @@ fz_new_ocr_device_with_options(fz_context *ctx,
 		int with_list,
 		const char *language,
 		const char *datadir,
-		int (*progress)(fz_context *, void *, int),
+		fz_ocr_progress_fn *progress,
 		void *progress_arg,
 		fz_options *options)
 {
