@@ -1724,7 +1724,7 @@ fz_matrix fz_image_orientation_matrix(fz_context *ctx, fz_image *image)
 	return m;
 }
 
-typedef struct fz_display_list_image_s
+typedef struct fz_display_list_image
 {
 	fz_image super;
 	fz_matrix transform;

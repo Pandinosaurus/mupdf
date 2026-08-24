@@ -25,20 +25,21 @@
 //#define DEBUG_WRITE_AS_PS
 //#define DEBUG_STRUCT
 
-typedef struct boxer_s boxer_t;
 
-typedef struct {
+typedef struct rectlist
+{
 	double fudge;
 	int len;
 	int cap;
 	fz_rect list[FZ_FLEXIBLE_ARRAY];
 } rectlist_t;
 
-struct boxer_s {
+typedef struct boxer
+{
 	fz_rect mediabox;
 	rectlist_t *list;
 	int tight;
-};
+} boxer_t;
 
 static rectlist_t *
 rectlist_create(fz_context *ctx, int cap, double fudge)

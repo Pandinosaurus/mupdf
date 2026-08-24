@@ -936,7 +936,7 @@ fz_new_deskewer(fz_context *ctx,
    (-b/yX       1/yY) (bxY  yY(1+bc))   (-bx/y + bx/y    -bc + (1+bc)           )   (0 1)
 */
 
-typedef struct fz_deskewer_bander_s {
+typedef struct fz_deskewer_bander {
 	fz_deskewer  *deskewer;
 	double        diag_y;
 	double        diag_dy;

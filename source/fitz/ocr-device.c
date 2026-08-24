@@ -94,14 +94,15 @@ on our initial list building pass, collate those into matching 'words'
 and sort them accordingly.
 */
 
-typedef struct word_record_s {
+typedef struct word_record
+{
 	int len;
 	fz_rect bbox;
 	int n;
 	int unicode[FZ_FLEXIBLE_ARRAY];
 } word_record;
 
-typedef struct fz_ocr_device_s
+typedef struct fz_ocr_device
 {
 	fz_device super;
 

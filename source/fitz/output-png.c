@@ -94,7 +94,7 @@ fz_write_pixmap_as_png(fz_context *ctx, fz_output *out, fz_pixmap *pixmap)
 	}
 }
 
-typedef struct png_band_writer_s
+typedef struct png_band_writer
 {
 	fz_band_writer super;
 	unsigned char *udata;

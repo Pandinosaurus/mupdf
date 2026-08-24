@@ -101,7 +101,7 @@ fz_write_pixmap_as_pclm(fz_context *ctx, fz_output *out, const fz_pixmap *pixmap
 		fz_rethrow(ctx);
 }
 
-typedef struct pclm_band_writer_s
+typedef struct pclm_band_writer
 {
 	fz_band_writer super;
 	fz_pclm_options options;

@@ -32,9 +32,9 @@
 /*
 	HTML types required
 */
-typedef struct fz_html_s fz_html;
-typedef struct fz_html_font_set_s fz_html_font_set;
-typedef struct fz_html_hyph_set_s fz_html_hyph_set;
+typedef struct fz_html fz_html;
+typedef struct fz_html_font_set fz_html_font_set;
+typedef struct fz_html_hyph_set fz_html_hyph_set;
 
 typedef enum fz_html_flavor
 {

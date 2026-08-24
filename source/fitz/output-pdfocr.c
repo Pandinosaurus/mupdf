@@ -262,7 +262,7 @@ fz_write_pixmap_as_pdfocr(fz_context *ctx, fz_output *out, const fz_pixmap *pixm
 }
 
 #ifndef OCR_DISABLED
-typedef struct pdfocr_band_writer_s
+typedef struct pdfocr_band_writer
 {
 	fz_band_writer super;
 	fz_pdfocr_options options;

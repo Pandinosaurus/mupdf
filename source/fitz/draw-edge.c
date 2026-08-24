@@ -37,7 +37,7 @@
  * See Mike Abrash -- Graphics Programming Black Book (notably chapter 40)
  */
 
-typedef struct fz_edge_s
+typedef struct fz_edge
 {
 	int x, e, h, y;
 	int adj_up, adj_down;
@@ -45,7 +45,7 @@ typedef struct fz_edge_s
 	int xdir, ydir; /* -1 or +1 */
 } fz_edge;
 
-typedef struct fz_gel_s
+typedef struct fz_gel
 {
 	fz_rasterizer super;
 	fz_list(fz_edge, edges);

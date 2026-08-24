@@ -69,7 +69,7 @@ typedef struct
 }
 cursor_t;
 
-typedef struct fz_edgebuffer_s
+typedef struct fz_edgebuffer
 {
 	fz_rasterizer super;
 	int app;

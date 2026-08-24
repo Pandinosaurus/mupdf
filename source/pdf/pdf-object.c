@@ -36,7 +36,7 @@ static const char *PDF_NAME_LIST[] = {
 };
 #undef PDF_MAKE_NAME
 
-typedef enum pdf_objkind_e
+typedef enum pdf_objkind
 {
 	PDF_INT = 'i',
 	PDF_REAL = 'f',
