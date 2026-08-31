@@ -69,13 +69,13 @@ typedef struct fz_text_decoder fz_text_decoder;
 
 struct fz_text_decoder {
 	// get maximum size estimate of converted text (fast)
-	int (*decode_bound)(fz_text_decoder *dec, unsigned char *input, int n);
+	size_t (*decode_bound)(fz_text_decoder *dec, unsigned char *input, size_t n);
 
 	// get exact size of converted text (slow)
-	int (*decode_size)(fz_text_decoder *dec, unsigned char *input, int n);
+	size_t (*decode_size)(fz_text_decoder *dec, unsigned char *input, size_t n);
 
 	// convert text into output buffer
-	void (*decode)(fz_text_decoder *dec, char *output, unsigned char *input, int n);
+	void (*decode)(fz_text_decoder *dec, char *output, unsigned char *input, size_t n);
 
 	// for internal use only; do not touch!
 	void *table1;

@@ -957,7 +957,7 @@ static char *convert_to_utf8(fz_context *ctx, unsigned char *s, size_t n, int *d
 	const char *enc;
 	const unsigned char *e = s + n;
 	char *dst, *d;
-	int m;
+	size_t m;
 	int c;
 
 	if (s[0] == 0xFE && s[1] == 0xFF) {
@@ -991,7 +991,7 @@ static char *convert_to_utf8(fz_context *ctx, unsigned char *s, size_t n, int *d
 	{
 		fz_init_text_decoder(ctx, &dec, enc);
 		// NOTE: use decode_size if memory is more important than speed
-		m = (int)dec.decode_bound(&dec, s, (int)n);
+		m = dec.decode_bound(&dec, s, n);
 		dst = Memento_label(fz_malloc(ctx, m), "utf8");
 		dec.decode(&dec, dst, s, (int)n);
 		*dofree = 1;
