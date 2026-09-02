@@ -1,4 +1,4 @@
-// Copyright (C) 2004-2021 Artifex Software, Inc.
+// Copyright (C) 2004-2026 Artifex Software, Inc.
 //
 // This file is part of MuPDF.
 //
@@ -241,6 +241,7 @@ fz_render_stroked_glyph(fz_context *ctx, fz_font *font, int gid, fz_matrix *trm,
 	return fz_render_glyph(ctx, font, gid, trm, model, scissor, 1, aa);
 }
 
+/* Jenkins' one_at_a_time hash */
 static unsigned do_hash(unsigned char *s, int len)
 {
 	unsigned val = 0;
